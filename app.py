@@ -6,7 +6,7 @@ import requests
 
 st.title("Read CSV from github")
 
-url = "https://raw.githubusercontent.com/AimanFaris06/house_price/main/House_Price_Dataset.csv"
+url = "https://raw.githubusercontent.com/AimanFaris06/house_price/main/data.csv"
 
 def load_data():
   return pd.read_csv(url)
@@ -30,7 +30,7 @@ if st.button("Upload to github"):
   csv = df.to_csv(index=False)
   content = base64.b64encode(csv.encode()).decode()
   
-  url = "https://api.github.com/repos/AimanFaris06/house_price/House_Price_Dataset.csv"
+  url = "https://api.github.com/repos/AimanFaris06/house_price/data2.csv"
   headers = {"Authorization": f"token {st.secrets['github']['token']}"}
   
   payload = {
