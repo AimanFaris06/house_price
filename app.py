@@ -42,7 +42,7 @@ if st.button("Upload to github"):
   r = requests.put(url, headers = headers, json = payload)
   if r.status_code in [200,201]:
       st.success("data Uploaded!")
-  else
+  else:
       st.error("Failed to upload")
   
 
