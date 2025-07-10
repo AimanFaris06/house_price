@@ -4,6 +4,16 @@ import base64
 import requests
 
 
-st.title("Read CSV from itub")
+st.title("Read CSV from github")
 
-url = "https://github.com/AimanFaris06/house_price/new/main"
+url = "https://raw.githubusercontent.com/AimanFaris06/house_price/main/data.csv"
+
+def load_data():
+  return pd.read_csv(url)
+
+try:
+  df = load_data()
+  st.success("Data loaded successfully")
+  st.dataframe(df)
+except Exception as e:
+  st.error("Failed to load data: {e}")
